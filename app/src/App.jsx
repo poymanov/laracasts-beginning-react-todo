@@ -47,6 +47,10 @@ function App() {
         setTodoInput(event.target.value);
     }
 
+    function deleteTodo(id) {
+        setTodos([...todos].filter(todo => todo.id !== id));
+    }
+
     return (
         <div className="todo-app-container">
             <div className="todo-app">
@@ -69,7 +73,7 @@ function App() {
                                 <span className="todo-item-label">{todo.title}</span>
                                 {/* <input type="text" className="todo-item-input" value="Finish React Series" /> */}
                             </div>
-                            <button className="x-button">
+                            <button onClick={() => deleteTodo(todo.id)} className="x-button">
                                 <svg
                                     className="x-button-icon"
                                     fill="none"
