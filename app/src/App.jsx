@@ -69,9 +69,8 @@ function App() {
                     {todos.map((todo, index) => (
                         <li className="todo-item-container" key={todo.id}>
                             <div className="todo-item">
-                                <input type="checkbox"/>
-                                <span className="todo-item-label">{todo.title}</span>
-                                {/* <input type="text" className="todo-item-input" value="Finish React Series" /> */}
+                                <input type="checkbox" checked={!!todo.isComplete}/>
+                                <span className={`todo-item-label ${todo.isComplete ? 'line-through' : ''}`}>{todo.title}</span>
                             </div>
                             <button onClick={() => deleteTodo(todo.id)} className="x-button">
                                 <svg
