@@ -47,6 +47,18 @@ function App() {
         setTodoInput(event.target.value);
     }
 
+    function completeTodo(id) {
+        const updatedTodos = todos.map(todo => {
+            if (todo.id === id) {
+                todo.isComplete = !todo.isComplete
+            }
+
+            return todo;
+        });
+
+        setTodos(updatedTodos)
+    }
+
     function deleteTodo(id) {
         setTodos([...todos].filter(todo => todo.id !== id));
     }
@@ -69,7 +81,7 @@ function App() {
                     {todos.map((todo, index) => (
                         <li className="todo-item-container" key={todo.id}>
                             <div className="todo-item">
-                                <input type="checkbox" checked={!!todo.isComplete}/>
+                                <input type="checkbox" onChange={() => completeTodo(todo.id)} checked={!!todo.isComplete}/>
                                 <span className={`todo-item-label ${todo.isComplete ? 'line-through' : ''}`}>{todo.title}</span>
                             </div>
                             <button onClick={() => deleteTodo(todo.id)} className="x-button">
