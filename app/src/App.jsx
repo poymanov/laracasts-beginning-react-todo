@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import TodoForm from './TodoForm';
 import './App.css';
 
 function App() {
@@ -23,31 +24,19 @@ function App() {
         },
     ]);
 
-    const [todoInput, setTodoInput] = useState('');
     const [idForTodo, setIdForTodo] = useState(4);
 
-    function addTodo(event) {
-        event.preventDefault();
-
-        if (todoInput.trim().length === 0) {
-            return;
-        }
-
+    function addTodo(todo) {
         setTodos([
             ...todos,
             {
                 id: idForTodo,
-                title: todoInput,
+                title: todo,
                 isComplete: false,
             }
         ]);
 
-        setTodoInput('');
         setIdForTodo(prevIdForTodo => prevIdForTodo + 1);
-    }
-
-    function handleInput(event) {
-        setTodoInput(event.target.value);
     }
 
     function completeTodo(id) {
@@ -111,15 +100,7 @@ function App() {
         <div className="todo-app-container">
             <div className="todo-app">
                 <h2>Todo App</h2>
-                <form onSubmit={addTodo}>
-                    <input
-                        type="text"
-                        value={todoInput}
-                        onChange={handleInput}
-                        className="todo-input"
-                        placeholder="What do you need to do?"
-                    />
-                </form>
+                <TodoForm addTodo={addTodo}/>
 
                 <ul className="todo-list">
                     {todos.map((todo, index) => (
