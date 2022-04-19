@@ -1,4 +1,9 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+
+TodoForm.propTypes = {
+    addTodo: PropTypes.func.isRequired,
+};
 
 function TodoForm(props) {
     const [todoInput, setTodoInput] = useState('');
