@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TodoItemsRemaining from "./TodoItemsRemaining";
 
 TodoList.propTypes = {
     todos: PropTypes.array.isRequired,
@@ -8,6 +9,7 @@ TodoList.propTypes = {
     updateTodo: PropTypes.func.isRequired,
     cancelEdit: PropTypes.func.isRequired,
     deleteTodo: PropTypes.func.isRequired,
+    remaining: PropTypes.func.isRequired,
 };
 
 function TodoList(props) {
@@ -69,7 +71,7 @@ function TodoList(props) {
                     <div className="button">Check All</div>
                 </div>
 
-                <span>3 items remaining</span>
+                <TodoItemsRemaining remaining={props.remaining}/>
             </div>
 
             <div className="other-buttons-container">
