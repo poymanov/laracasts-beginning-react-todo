@@ -102,6 +102,10 @@ function App() {
         return todos.filter(todo => !todo.isComplete).length;
     }
 
+    function clearCompleted() {
+        setTodos([...todos].filter(todo => !todo.isComplete));
+    }
+
     return (
         <div className="todo-app-container">
             <div className="todo-app">
@@ -117,6 +121,7 @@ function App() {
                         cancelEdit={cancelEdit}
                         deleteTodo={deleteTodo}
                         remaining={remaining}
+                        clearCompleted={clearCompleted}
                     />
                 ) : (
                     <NoTodos/>
