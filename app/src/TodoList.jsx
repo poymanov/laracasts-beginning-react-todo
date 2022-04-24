@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItemsRemaining from "./TodoItemsRemaining";
 import TodoClearCompleted from "./TodoClearCompleted";
+import TodoCompleteAllTodos from "./TodoCompleteAllTodos";
 
 TodoList.propTypes = {
     todos: PropTypes.array.isRequired,
@@ -12,6 +13,7 @@ TodoList.propTypes = {
     deleteTodo: PropTypes.func.isRequired,
     remaining: PropTypes.func.isRequired,
     clearCompleted: PropTypes.func.isRequired,
+    completedAllTodos: PropTypes.func.isRequired,
 };
 
 function TodoList(props) {
@@ -69,10 +71,7 @@ function TodoList(props) {
             </ul>
 
             <div className="check-all-container">
-                <div>
-                    <div className="button">Check All</div>
-                </div>
-
+                <TodoCompleteAllTodos completedAllTodos={props.completedAllTodos}/>
                 <TodoItemsRemaining remaining={props.remaining}/>
             </div>
 
