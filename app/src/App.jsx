@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useMemo, useState} from 'react';
 import TodoForm from './TodoForm';
 import './App.css';
 import TodoList from "./TodoList";
@@ -98,9 +98,11 @@ function App() {
         setTodos([...todos].filter(todo => todo.id !== id));
     }
 
-    function remaining() {
+    function remainingCalculation() {
         return todos.filter(todo => !todo.isComplete).length;
     }
+
+    const remaining = useMemo(remainingCalculation, [todos])
 
     function clearCompleted() {
         setTodos([...todos].filter(todo => !todo.isComplete));
