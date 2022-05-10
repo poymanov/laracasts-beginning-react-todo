@@ -3,7 +3,7 @@ import TodoItemsRemaining from "./TodoItemsRemaining";
 import TodoClearCompleted from "./TodoClearCompleted";
 import TodoCompleteAllTodos from "./TodoCompleteAllTodos";
 import TodoFilters from "./TodoFilters";
-import {TodosContext} from "./context/TodosContext";
+import {TodosContext} from "../context/TodosContext";
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 function TodoList() {

@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {TodosContext} from "./context/TodosContext";
+import {TodosContext} from "../context/TodosContext";
 
 function TodoForm() {
     const {todos, setTodos, idForTodo, setIdForTodo} = useContext(TodosContext)

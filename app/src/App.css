@@ -13,8 +13,13 @@ body {
 
 .todo-app-container {
     min-height: 100vh;
-    padding: 10px;
     background: #f3f4f6;
+}
+
+.container {
+    margin: auto;
+    padding-top: 24px;
+    max-width: 48rem;
 }
 
 .todo-app {
@@ -145,6 +150,25 @@ h2 {
 .no-todos-container p {
     margin-top: 20px;
     text-align: center;
+}
+
+nav {
+    background: white;
+    padding: 16px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+nav ul li:not(:first-child) {
+    margin-left: 16px;
+}
+
+.active {
+    font-weight: bold;
 }
 
 /* Transitions  */
